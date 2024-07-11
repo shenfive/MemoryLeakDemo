@@ -8,12 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    var counter = 1
+    @IBAction func testAction(_ sender: Any) {
+        print(counter)
+        counter += 1
+        for _ in 1...1000000{
+            let a = Server()
+            a.add(client: Client.init(server: a))
+        }
     }
-
-
+    
 }
 
