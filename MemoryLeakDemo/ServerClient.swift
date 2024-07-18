@@ -14,6 +14,7 @@ class Server {
 }
 
 class Client {
+    // weak var server: Server! // 較好的寫法
     var server: Server
     init (server: Server) {
         self.server = server

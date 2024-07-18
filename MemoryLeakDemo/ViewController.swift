@@ -14,9 +14,12 @@ class ViewController: UIViewController {
         print(counter)
         counter += 1
         for _ in 1...1000000{
-            let a = Server()
+            let a:Server = Server()
             a.add(client: Client.init(server: a))
+            // 其他程式
+            //a.clients.removeAll() //在結束使用 Server 後，要解除關連，除非它是 weak
         }
+    
     }
     
 }
