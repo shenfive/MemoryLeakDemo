@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNT-Jd-mDr">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -17,25 +17,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ent-MS-MyG">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
+                                <rect key="frame" x="113" y="408.66666666666669" width="167" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="循環引用 負載測試"/>
                                 <connections>
-                                    <action selector="testAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bdi-VE-Lq7"/>
+                                    <action selector="testRetainCycles:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bdi-VE-Lq7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4g-An-lzT">
+                                <rect key="frame" x="135.66666666666666" y="483.66666666666669" width="121.99999999999997" height="35.000000000000057"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Closure 補獲"/>
+                                <connections>
+                                    <action selector="testClosure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QS-Ft-uoN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpf-cF-OiM">
+                                <rect key="frame" x="143" y="558.66666666666663" width="107" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Timer 補獲"/>
+                                <connections>
+                                    <action selector="testTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pdv-0i-SAS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dpf-cF-OiM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZs-Ca-HSR"/>
+                            <constraint firstItem="dpf-cF-OiM" firstAttribute="top" secondItem="M4g-An-lzT" secondAttribute="bottom" constant="40" id="aKb-5x-csp"/>
                             <constraint firstItem="ent-MS-MyG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ixe-wK-YQw"/>
+                            <constraint firstItem="M4g-An-lzT" firstAttribute="top" secondItem="ent-MS-MyG" secondAttribute="bottom" constant="40" id="kes-lt-WFd"/>
                             <constraint firstItem="ent-MS-MyG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qjY-SZ-KTp"/>
+                            <constraint firstItem="M4g-An-lzT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wE6-rQ-rOH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Xxa-s9-X83"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-27"/>
+            <point key="canvasLocation" x="28.244274809160306" y="-418.3098591549296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bEI-sr-7dr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNT-Jd-mDr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rGG-mN-GO4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Wcf-6t-CVX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXL-Y3-75n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-898.47328244274809" y="-418.3098591549296"/>
         </scene>
     </scenes>
     <resources>
